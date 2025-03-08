@@ -24,9 +24,8 @@
                         <i class="bi bi-person"></i> <span class="fs-6">Username</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
