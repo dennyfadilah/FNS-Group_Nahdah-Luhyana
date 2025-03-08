@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="<?= base_url('vendor/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('vendor/bootstrap-icons/font/bootstrap-icons.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('vendor/datatables/css/datatables.min.css') ?>">
-
-    <?= $this->renderSection('style') ?>
 </head>
 
 <body>
 
-    <?= $this->renderSection('main') ?>
+    <?= $this->renderSection('content') ?>
 
-    <script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('vendor/bootrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('vendor/jquery/jquery.js') ?>"></script>
     <script src="<?= base_url('vendor/datatables/js/datatables.min.js') ?>"></script>
-    <script src="<?= base_url('assets/js/script.js') ?>"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/main') ?>
 
-<?= $this->section('main') ?>
+<?= $this->section('content') ?>
 <title>App</title>
 
 <div class="container p-5">
