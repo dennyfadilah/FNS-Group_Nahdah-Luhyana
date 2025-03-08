@@ -21,7 +21,7 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false" id="btnDropdown">
-                        <i class="bi bi-person"></i> Username
+                        <i class="bi bi-person"></i> <span class="fs-6">Username</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Action</a></li>
