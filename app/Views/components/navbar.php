@@ -38,17 +38,18 @@
                         <i class="bi bi-house-door"></i>
                         <span class="ms-2">Dashboard</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="<?= site_url('projects') ?>" class="list-group-item list-group-item-action"
+                        aria-current="true">
                         <i class="bi bi-share"></i>
                         <span class="ms-2">Projects</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="<?= site_url('tasks') ?>" class="list-group-item list-group-item-action">
                         <i class="bi bi-list-task"></i>
                         <span class="ms-2">Tasks</span></a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="<?= site_url('reports') ?>" class="list-group-item list-group-item-action">
                         <i class="bi bi-graph-up"></i>
                         <span class="ms-2">Reports</span></a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="<?= site_url('users') ?>" class="list-group-item list-group-item-action">
                         <i class="bi bi-people"></i>
                         <span class="ms-2">Users</span></a>
                 </div>

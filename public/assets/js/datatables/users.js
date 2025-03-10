@@ -1,0 +1,1 @@
+const tbUsers = $("#tbUsers").DataTable({});
