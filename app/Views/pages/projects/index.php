@@ -3,7 +3,11 @@
 <?= $this->section('title') ?>Projects<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="p-2">
+<div class="">
+    <div class="d-flex justify-content-between">
+        <h2>Projects</h2>
+        <a href="<?= base_url('projects/create') ?>" class="btn btn-sm btn-primary">Create Project</a>
+    </div>
     <table id="tbUsers" class="table table-striped table-bordered table-hover">
         <thead>
             <tr>

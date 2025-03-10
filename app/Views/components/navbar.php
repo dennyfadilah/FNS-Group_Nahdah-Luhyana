@@ -19,13 +19,13 @@
             </div>
             <div class="col-auto">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false" id="btnDropdown">
                         <i class="bi bi-person"></i> <span class="fs-6">Username</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('logout') ?>">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +33,7 @@
         <div class="offcanvas offcanvas-start show offcanvas-setting" data-bs-scroll="true" data-bs-backdrop="false"
             tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-body">
-                <div class="list-group rounded-0">
+                <div class="list-group list-group-flush">
                     <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                         <i class="bi bi-house-door"></i>
                         <span class="ms-2">Dashboard</span>
