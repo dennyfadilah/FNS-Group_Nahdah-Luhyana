@@ -3,16 +3,20 @@
 <?= $this->section('title') ?>Users<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card">
-    <div class="card-header">
+<div class="card border-top-0">
+    <div class="card-header border-3 border-top border-bottom-0 border-success">
         <div class="d-flex align-items-center justify-content-between">
             <h5 class="card-title my-0">Users</h5>
-            <a href="<?= base_url('users/create') ?>" class="btn btn-outline-primary btn-sm">Create User</a>
+            <button type="button" class="btn btn-primary btn-sm" id="btnModalCreateUser" data-bs-toggle="modal"
+                data-bs-target="#createUserModal">
+                Create User
+            </button>
+            <?= view('pages/users/create') ?>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body border-top border-0">
         <div class="p-2">
-            <table id="tbUsers" class="table table-striped table-hover">
+            <table id="tbUser" class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col" class="text-center">No.</th>
@@ -23,42 +27,39 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>John Doe</td>
-                        <td>D5M8t@example.com</td>
-                        <td>Admin</td>
-                        <td class="text-center">
-                            <div class="dropdown-center">
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                                    id="btnActions" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-gear me-1"></i>Actions
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td>John Doe</td>
-                        <td>D5M8t@example.com</td>
-                        <td>Admin</td>
-                        <td class="text-center">
-                            <div class="dropdown-center">
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle btnActions"
-                                    type="button" id="btnActions" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-gear me-1"></i>Actions
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php $i = 1;
+                    foreach ($users as $user) : ?>
+                        <tr>
+                            <td class="text-center"><?= $i++ ?></td>
+                            <td><?= $user['firstname'] . ' ' . $user['lastname'] ?></td>
+                            <td><?= $user['email'] ?></td>
+                            <td><?= $user['role'] ?></td>
+                            <td class="text-center">
+                                <div class="dropdown-center">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                        id="btnActions" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-gear me-1"></i>Actions
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li>
+                                            <button type="button" class="dropdown-item" data-bs-toggle="modal"
+                                                data-bs-target="#editUserModal<?= $user['id'] ?>">
+                                                Edit
+                                            </button>
+                                        </li>
+                                        <li class="<?= $user['role'] == 'admin' ? 'd-none' : '' ?>">
+                                            <form action="<?= site_url('users/delete/' . $user['id']) ?>" method="post"
+                                                onsubmit="return confirm('Are you sure you want to delete this user?')">
+                                                <button type="submit" class="dropdown-item">Delete</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    <div class="text-start"><?= view('pages/users/edit', ['user' => $user]) ?></div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
                 </tbody>
             </table>
         </div>
@@ -67,13 +68,14 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('script') ?>
-<script src="<?= base_url('assets/js/datatables/users.js') ?>"></script>
+<script src="<?= base_url('assets/js/tables/user.js') ?>"></script>
 
 <script>
-$('#btnActions').each(function() {
-    $(this).on('click', function() {
-        $(this).dropdown("toggle");
-    });
-})
+    const sessionError =
+        '<?= session('errors.firstname') || session('errors.lastname') || session('errors.email') || session('errors.password') || session('errors.confirmPassword') ?>';
+
+    if (sessionError) {
+        $('#btnModalCreateUser').trigger('click');
+    }
 </script>
 <?= $this->endSection() ?>

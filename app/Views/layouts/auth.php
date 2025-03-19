@@ -5,7 +5,7 @@
     .main-content {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: #f5f5f5;
+        background-color: teal;
     }
 </style>
 <?= $this->endSection() ?>

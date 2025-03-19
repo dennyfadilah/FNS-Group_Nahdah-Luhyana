@@ -25,21 +25,22 @@ class AuthController extends BaseController
             return redirect()->back()->withInput()->with('errors', ['email' => 'Email not found']);
         }
 
-        if (!password_verify($password, $user->password)) {
+        if (!password_verify($password, $user['password'])) {
             return redirect()->back()->withInput()->with('errors', ['password' => 'Password is incorrect']);
         }
 
         $data = [
-            'id' => $user->id,
-            'email' => $user->email,
-            'name' => $user->name,
+            'id' => $user['id'],
+            'email' => $user['email'],
+            'name' => $user['firstname'] . ' ' . $user['lastname'],
+            'role' => $user['role'],
             'isLoggedIn' => true
         ];
 
         session()->set($data);
         session()->regenerate();
 
-        return $this->response->setJSON(['message' => 'Login success', 'data' => $data]);
+        return redirect()->to('/');
     }
 
     public function logout()

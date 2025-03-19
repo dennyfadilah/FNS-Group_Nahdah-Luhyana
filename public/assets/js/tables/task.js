@@ -1,0 +1,3 @@
+$(() => {
+	const tbUsers = $("#tbUsers").DataTable({});
+});
